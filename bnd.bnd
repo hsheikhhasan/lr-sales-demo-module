@@ -1,0 +1,5 @@
+Bundle-Name: lr-sales-demo-module
+Bundle-SymbolicName: com.liferay.sales.demo.module
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.sales.demo.module.constants
+Web-ContextPath: /lr-sales-demo-module
