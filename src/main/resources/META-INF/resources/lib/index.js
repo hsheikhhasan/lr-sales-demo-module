@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import base64 from 'base-64';
 
-const username = 'hamzeh.sheikhhasan@liferay.com';
+const username = 'test@liferay.com';
 const password = 'test';
 
 class Announcements extends React.Component {
@@ -35,10 +35,10 @@ class Announcements extends React.Component {
 				})
 
 				//REST API or Pre 7.2 Headles APIs
-				fetch(
-					this.state.apiType === 'pre' 
-						? '/api/jsonws/assetcategory/get-vocabulary-categories/vocabulary-id/'+ this.state.vocabularyId +'/start/0/end/100/-obc'
-						: '/o/salesdemo-rest/categories/locations'
+					fetch(
+						this.state.apiType === 'pre' 
+							? '/api/jsonws/assetcategory/get-vocabulary-categories/vocabulary-id/'+ this.state.vocabularyId +'/start/0/end/100/-obc'
+							: '/o/salesdemo-rest/categories/locations'
 					)
 					.then(res => res.json())
 					.then((data) => {
@@ -52,6 +52,14 @@ class Announcements extends React.Component {
 
 						this.state.apiType === 'post' && this.state.preferredLocation === 'all'
 							? (
+								fetch('o/headless-admin-taxonomy/v1.0/taxonomy-vocabularies/' + this.state.vocabularyId + '/taxonomy-categories', 
+									{method: 'GET', headers: headers,})
+									.then(res => res.json())
+									.then((data) => {
+										this.setState({ categories: data.items })
+									})
+									.catch(console.log).
+
 								fetch('/o/headless-delivery/v1.0/content-structures/' + this.state.structureId + '/structured-contents', 
 									{method: 'GET', headers: headers,})
 									.then(res => res.json())
