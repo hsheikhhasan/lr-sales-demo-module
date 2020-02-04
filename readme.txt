@@ -92,7 +92,7 @@ How to configure ReactJS Module
 }
 
 
-6- create few web contents, make sure to assign locations (Ottawa, Berlin ..etc) from METADATA --> Locations
+6- create few web contents (ignore document and media field), make sure to assign locations (Ottawa, Berlin ..etc) from METADATA --> Locations
 7- register REST service: Control Panel --> Configuration --> Service Access policy, make sure to keep method name field empty.
 	name: SalesDemoRestApplication
 	Title: Sales Demo RestJS REST Service
